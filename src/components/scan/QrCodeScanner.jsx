@@ -9,6 +9,8 @@ export const QrCodeScanner = () => {
 
     const prevData = JSON.parse(localStorage.getItem(SCAN_DATA) || '[]')
 
+    if(prevData.includes(result[0].rawValue)) return
+
     localStorage.setItem(SCAN_DATA, JSON.stringify([...prevData, result[0].rawValue]))
   }
 
